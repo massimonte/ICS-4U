@@ -1,0 +1,150 @@
+//Massimiliano Montanari
+//06/08/2016
+//The purpose of this program is to change DNA code into its respective amino acids
+//The "dna" class 
+
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+
+class dna2
+{
+
+    public static void main (String[] args)
+    //Pre-conditions
+    //Post-conditions
+    //This method is the main method and will have all variables will be declared and will
+    //contain the while loop that will separate the code into groups with 3 chars each
+    {
+        //Welcome 
+        System.out.println ("Hello and welcome to Massi's DNA converter");
+        System.out.println ();
+        System.out.println ("Please input a DNA code and my program will convert it into its");
+        System.out.println ("respective proteins.");
+        System.out.println ();
+
+        //Scanner to obtain user input
+        Scanner dnaScanner = new Scanner(System.in);
+        //This converts the user input into a string
+        String dna = dnaScanner.nextLine();
+        
+
+        int length = dna.length();
+        boolean stop = false;
+        String aminoacids = "";
+
+        int i = 0;
+        int while_index = 1;
+        int while_index1 = 2;
+        //This while loop will take the string and cut it into smaller strings
+        while (i <= dna.length () - 3)
+        {
+            System.out.println("Next codon: " + dna.substring (i,i+3));
+            aminoacids = aminoacids + dna.substring (i,i+3);
+            aminoacids = aminoacids + " ";
+            System.out.println ();
+            i = i + 3;
+   
+            //Montanari to explain what the above code does...
+            //The dna.substring will take the string and separate it into 3 character strings
+            //Aminoacids is then being equated to the string with 3 characters in each group with 
+            //spaces in between each group
+            //A space is then printed to separate the dna from the protein
+            //Also i is being increased by 3. 
+        }
+        while (while_index <= dna.length () - 1)
+        {
+            aminoacids = aminoacids + dna.substring (while_index, while_index + 1);
+            aminoacids = aminoacids + " ";
+            System.out.println ();
+            while_index = while_index + 3;
+        }
+        while (while_index1 <= dna.length () - 2)
+        {
+            aminoacids = aminoacids + dna.substring (while_index1, while_index1 + 2);
+            aminoacids = aminoacids + " ";
+            System.out.println ();
+            while_index = while_index + 3;
+        }
+        //This will print out the required results
+        System.out.println("The proteins are");
+        dnaconverter(dna, aminoacids, length, i);
+
+    } //main method
+    public static void dnaconverter (String dna, String aminoacids, int length, int i)
+    //This method will take each 3 char sub string and convert it to the appropriate amino acid
+    //Pre-conditions
+    //Post-conditions
+
+    {
+
+        
+        aminoacids = aminoacids.replaceAll ("TTT", "F");
+        aminoacids = aminoacids.replaceAll ("TCT", "S");
+        aminoacids = aminoacids.replaceAll ("TGT", "C");
+        aminoacids = aminoacids.replaceAll ("TAT", "Y");
+        aminoacids = aminoacids.replaceAll ("CTT", "L");
+        aminoacids = aminoacids.replaceAll ("CAT", "H");
+        aminoacids = aminoacids.replaceAll ("CGT", "R");
+        aminoacids = aminoacids.replaceAll ("ATT", "I");
+        aminoacids = aminoacids.replaceAll ("ACT", "T");
+        aminoacids = aminoacids.replaceAll ("AAT", "N");
+        aminoacids = aminoacids.replaceAll ("AGT", "S");
+        aminoacids = aminoacids.replaceAll ("GTT", "V");
+        aminoacids = aminoacids.replaceAll ("GCT", "A");
+        aminoacids = aminoacids.replaceAll ("GAT", "D");
+        aminoacids = aminoacids.replaceAll ("GGT", "G");
+        aminoacids = aminoacids.replaceAll ("TTC", "F");
+        aminoacids = aminoacids.replaceAll ("TCC", "S");
+        aminoacids = aminoacids.replaceAll ("TAC", "Y");
+        aminoacids = aminoacids.replaceAll ("TGC", "C");
+        aminoacids = aminoacids.replaceAll ("CTC", "L");
+        aminoacids = aminoacids.replaceAll ("CCC", "P");
+        aminoacids = aminoacids.replaceAll ("CAC", "H");
+        aminoacids = aminoacids.replaceAll ("CGC", "R");
+        aminoacids = aminoacids.replaceAll ("ATC", "I");
+        aminoacids = aminoacids.replaceAll ("ACC", "T");
+        aminoacids = aminoacids.replaceAll ("AAC", "N");
+        aminoacids = aminoacids.replaceAll ("GTC", "V");
+        aminoacids = aminoacids.replaceAll ("GCC", "A");
+        aminoacids = aminoacids.replaceAll ("GAC", "D");
+        aminoacids = aminoacids.replaceAll ("GGC", "G");
+        aminoacids = aminoacids.replaceAll ("TTA", "L");
+        aminoacids = aminoacids.replaceAll ("TCA", "S");
+        aminoacids = aminoacids.replaceAll ("TAA", "STOP");
+        aminoacids = aminoacids.replaceAll ("TGA", "STOP");
+        aminoacids = aminoacids.replaceAll ("CTA", "L");
+        aminoacids = aminoacids.replaceAll ("CCA", "P");
+        aminoacids = aminoacids.replaceAll ("CAA", "Q");
+        aminoacids = aminoacids.replaceAll ("CGA", "R");
+        aminoacids = aminoacids.replaceAll ("ATA", "I");
+        aminoacids = aminoacids.replaceAll ("ACA", "T");
+        aminoacids = aminoacids.replaceAll ("AAA", "K");
+        aminoacids = aminoacids.replaceAll ("AGA", "R");
+        aminoacids = aminoacids.replaceAll ("GTA", "V");
+        aminoacids = aminoacids.replaceAll ("GCA", "A");
+        aminoacids = aminoacids.replaceAll ("GAA", "E");
+        aminoacids = aminoacids.replaceAll ("GGA", "G");
+        aminoacids = aminoacids.replaceAll ("TTG", "L");
+        aminoacids = aminoacids.replaceAll ("TCG", "S");
+        aminoacids = aminoacids.replaceAll ("TAG", "STOP");
+        aminoacids = aminoacids.replaceAll ("TGG", "W");
+        aminoacids = aminoacids.replaceAll ("CTG", "L");
+        aminoacids = aminoacids.replaceAll ("CCG", "P");
+        aminoacids = aminoacids.replaceAll ("CAG", "Q");
+        aminoacids = aminoacids.replaceAll ("CGG", "R");
+        aminoacids = aminoacids.replaceAll ("ATG", "M");
+        aminoacids = aminoacids.replaceAll ("ACG", "T");
+        aminoacids = aminoacids.replaceAll ("AAG", "K");
+        aminoacids = aminoacids.replaceAll ("AGG", "R");
+        aminoacids = aminoacids.replaceAll ("GTG", "V");
+        aminoacids = aminoacids.replaceAll ("GCG", "A");
+        aminoacids = aminoacids.replaceAll ("GAG", "E");
+        aminoacids = aminoacids.replaceAll ("GGG", "G");
+        aminoacids = aminoacids.replaceAll ("AGC", "S");
+        aminoacids = aminoacids.replaceAll (" ", "");
+        //This will print the amino acid
+        System.out.println(aminoacids); 
+
+    } //dnaconverter method
+} //dna class
